@@ -1,83 +1,86 @@
-# Lead Management System
+Lead Management System
+Project Overview
+The Lead Management System is an advanced web application designed to collect, score, and prioritize potential customer leads. Built for a property sales hackathon, this system demonstrates how companies can efficiently manage their sales pipeline by focusing on the most promising prospects.
 
-## Project Overview
+Key Features
+Smart Lead Collection: Intuitive form to gather essential information from potential customers.
 
-The **Lead Management System** is an advanced web application designed to collect, score, and prioritize potential customer leads. Built for a property sales hackathon, this system demonstrates how companies can efficiently manage their sales pipeline by focusing on the most promising prospects.
+Advanced Scoring Algorithm: Sophisticated multi-factor scoring system to prioritize leads (score 1-5).
 
-## Key Features
+Interactive Dashboard: Real-time lead management interface with filtering and sorting capabilities.
 
-- **Smart Lead Collection**: Intuitive form to gather essential information from potential customers.
-- **Advanced Scoring Algorithm**: Sophisticated multi-factor scoring system to prioritize leads (score 1-5).
-- **Interactive Dashboard**: Real-time lead management interface with filtering and sorting capabilities.
-- **Detailed Lead Analysis**: Comprehensive visualization of lead scores with breakdown of contributing factors.
-- **Business Rules Integration**: Special handling for VIP customers, urgent needs, and seasonal factors.
+Detailed Lead Analysis: Comprehensive visualization of lead scores with a breakdown of contributing factors.
 
-## Technologies Used
+Business Rules Integration: Special handling for VIP customers, urgent needs, and seasonal factors.
 
-### Frontend
+Technologies Used
+Frontend
+React.js
 
-- **React.js**: Library for building the user interface.
-- **Tailwind CSS**: Utility-first CSS framework for styling.
-- **Framer Motion**: Library for animations.
-- **React Router**: For navigation.
-- **Axios**: For making API requests.
+Tailwind CSS for styling
 
-### Backend
+Framer Motion for animations
 
-- **Node.js**: JavaScript runtime for the server.
-- **Express**: Web framework for building the API.
-- **MongoDB**: NoSQL database for data storage.
-- **RESTful API Architecture**: API for frontend-backend communication.
+React Router for navigation
 
-## Getting Started
+Axios for API requests
 
-### Prerequisites
+Backend
+Node.js
 
-- **Node.js** (v14.0.0 or higher)
-- **npm** (v6.0.0 or higher)
-- **MongoDB** (local or Atlas connection)
+Express
 
-### Installation
+MongoDB for data storage
 
-1. **Clone the repository**:
+RESTful API architecture
 
-   ```bash
-   git clone https://github.com/gitYourbits/drCode-LeadManager.git
-   cd drCode-LeadManager
-Install backend dependencies:
+Getting Started
+Prerequisites
+Node.js (v14.0.0 or higher)
+
+npm (v6.0.0 or higher)
+
+MongoDB (local or Atlas connection)
+
+Installation
+Clone the repository
+
+bash
+Copy
+Edit
+git clone https://github.com/gitYourbits/drCode-LeadManager.git
+cd drCode-LeadManager
+Install backend dependencies
 
 bash
 Copy
 Edit
 cd backend
 npm install
-Configure environment variables:
+Configure environment variables
 
 bash
 Copy
 Edit
 cp .env.example .env
 # Edit the .env file with your MongoDB connection string and other settings
-Generate Prisma client:
+Generate Prisma client
 
 bash
 Copy
 Edit
 npx prisma generate
-If you get any schema errors, run:
-
-bash
-Copy
-Edit
+# This creates the Prisma client code required by the application
+# If you get any schema errors, you may need to run:
 npx prisma db push
-Install frontend dependencies:
+Install frontend dependencies
 
 bash
 Copy
 Edit
 cd ../frontend
 npm install
-Start the application:
+Start the application
 
 In the backend directory:
 
@@ -123,19 +126,15 @@ If you see "Port already in use" errors:
 
 Find the process using the port:
 
-Windows:
+Windows: netstat -ano | findstr :[PORT]
 
-bash
-Copy
-Edit
-netstat -ano | findstr :[PORT]
 Kill the process:
 
 bash
 Copy
 Edit
 taskkill /PID [PID] /F
-Or change the port in the configuration files (check package.json or server.js).
+Or change the port in the configuration (check package.json or server.js files).
 
 Usage
 Creating a New Lead
@@ -181,9 +180,7 @@ Customer Type: New vs. returning customer.
 Key Algorithms Implementation
 The system leverages several advanced algorithms to achieve accurate prioritization:
 
-Hierarchical Fuzzy Logic:
-
-Implements membership functions to handle uncertainty in input values.
+Hierarchical Fuzzy Logic: Implements membership functions to handle uncertainty in input values.
 
 Converts continuous values (like budget) into fuzzy sets.
 
@@ -191,25 +188,37 @@ Applies fuzzy rules to combine criteria.
 
 Uses defuzzification to produce final scores.
 
-Analytic Hierarchy Process (AHP):
+Analytic Hierarchy Process (AHP): Determines optimal weights for different scoring factors.
 
-Determines optimal weights for different scoring factors using pairwise comparisons.
+Structured technique for organizing criteria in hierarchical form.
 
-Weighted Sum Model (WSM):
+Uses pairwise comparisons of criteria importance.
 
-Combines multiple factors into a single score by multiplying normalized scores by their respective weights.
+Calculates the principal eigenvector to derive weights.
 
-Contextual Adjustment Algorithm:
+Weighted Sum Model (WSM): Combines multiple factors into a single score.
 
-Modifies scores based on market conditions, location-based adjustments, property type-specific weight modifications, and seasonal factors.
+Multiplies normalized scores by their respective weights.
 
-Tie-Breaking Mechanism:
+Sums the weighted scores to produce a final value.
 
-Ensures consistent ordering when scores are identical, with hierarchical comparisons and deterministic random components.
+Converts the raw score to a 1-5 priority level.
 
-Scoring Diagram
-Here is a flowchart that illustrates the lead scoring process:
+Contextual Adjustment Algorithm: Modifies scores based on market conditions.
 
+Location-based priority adjustments.
+
+Property type-specific weight modifications.
+
+Seasonal factors that influence buying behavior.
+
+Tie-Breaking Mechanism: Ensures consistent ordering when scores are identical.
+
+Hierarchical comparison of individual factors.
+
+Deterministic random component for identical inputs.
+
+Data Flow Through Scoring System
 plaintext
 Copy
 Edit
@@ -251,11 +260,28 @@ Edit
 ┌─────────────────┐                        
 │  Final Priority │  Final Result: Priority Level 5
 │     Score       │  Action: Immediate follow-up within 1 hour
-└─────────────────┘                        
-Acknowledgments
-This project was developed for Xeno Internship.
+└─────────────────┘
+For detailed documentation on the scoring algorithm, see SCORING_DOCUMENTATION.md.
 
-This README keeps all of your original content intact and includes the diagram exactly as you requested.
+Project Structure
+plaintext
+Copy
+Edit
+lead-management-system/
+├── backend/              # Node.js Express backend
+│   ├── controllers/      # API route controllers
+│   ├── models/           # Database models
+│   ├── routes/           # API route definitions
+│   └── server.js         # Main server file
+├── frontend/             # React frontend application
+│   ├── public/           # Static assets
+│   ├── src/              # Source code
+│   │   ├── components/   # React components
+│   │   ├── services/     # API services
+│   │   ├── App.jsx       # Main application component
+│   │   └── main.jsx      # Entry point
+│   └── package.json      # Frontend dependencies
+└── README.md             # Project documentation
 
 
 
