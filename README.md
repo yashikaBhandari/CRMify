@@ -1,227 +1,187 @@
-Lead Management System
-Project Overview
-The Lead Management System is an advanced web application designed to collect, score, and prioritize potential customer leads. Built for a property sales hackathon, this system demonstrates how companies can efficiently manage their sales pipeline by focusing on the most promising prospects.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Management System</title>
+</head>
+<body>
+    <h1>Lead Management System</h1>
 
-Key Features
-Smart Lead Collection: Intuitive form to gather essential information from potential customers.
+    <h2>Project Overview</h2>
+    <p>The Lead Management System is an advanced web application designed to collect, score, and prioritize potential customer leads. Built for a property sales hackathon, this system demonstrates how companies can efficiently manage their sales pipeline by focusing on the most promising prospects.</p>
 
-Advanced Scoring Algorithm: Sophisticated multi-factor scoring system to prioritize leads (score 1-5).
+    <hr>
 
-Interactive Dashboard: Real-time lead management interface with filtering and sorting capabilities.
+    <h2>Key Features</h2>
+    <ul>
+        <li><strong>Smart Lead Collection:</strong> Intuitive form to gather essential information from potential customers.</li>
+        <li><strong>Advanced Scoring Algorithm:</strong> Sophisticated multi-factor scoring system to prioritize leads (score 1-5).</li>
+        <li><strong>Interactive Dashboard:</strong> Real-time lead management interface with filtering and sorting capabilities.</li>
+        <li><strong>Detailed Lead Analysis:</strong> Comprehensive visualization of lead scores with breakdown of contributing factors.</li>
+        <li><strong>Business Rules Integration:</strong> Special handling for VIP customers, urgent needs, and seasonal factors.</li>
+    </ul>
 
-Detailed Lead Analysis: Comprehensive visualization of lead scores with a breakdown of contributing factors.
+    <hr>
 
-Business Rules Integration: Special handling for VIP customers, urgent needs, and seasonal factors.
+    <h2>Technologies Used</h2>
+    <h3>Frontend</h3>
+    <ul>
+        <li>React.js</li>
+        <li>Tailwind CSS for styling</li>
+        <li>Framer Motion for animations</li>
+        <li>React Router for navigation</li>
+        <li>Axios for API requests</li>
+    </ul>
 
-Technologies Used
-Frontend
-React.js
+    <h3>Backend</h3>
+    <ul>
+        <li>Node.js</li>
+        <li>Express</li>
+        <li>MongoDB for data storage</li>
+        <li>RESTful API architecture</li>
+    </ul>
 
-Tailwind CSS for styling
+    <hr>
 
-Framer Motion for animations
+    <h2>Getting Started</h2>
 
-React Router for navigation
+    <h3>Prerequisites</h3>
+    <ul>
+        <li>Node.js (v14.0.0 or higher)</li>
+        <li>npm (v6.0.0 or higher)</li>
+        <li>MongoDB (local or Atlas connection)</li>
+    </ul>
 
-Axios for API requests
-
-Backend
-Node.js
-
-Express
-
-MongoDB for data storage
-
-RESTful API architecture
-
-Getting Started
-Prerequisites
-Node.js (v14.0.0 or higher)
-
-npm (v6.0.0 or higher)
-
-MongoDB (local or Atlas connection)
-
-Installation
-Clone the repository
-
-bash
-Copy
-Edit
-git clone https://github.com/gitYourbits/drCode-LeadManager.git
-cd drCode-LeadManager
-Install backend dependencies
-
-bash
-Copy
-Edit
-cd backend
-npm install
-Configure environment variables
-
-bash
-Copy
-Edit
-cp .env.example .env
-# Edit the .env file with your MongoDB connection string and other settings
-Generate Prisma client
-
-bash
-Copy
-Edit
-npx prisma generate
+    <h3>Installation</h3>
+    <p>Follow these steps to get the application running locally:</p>
+    <ol>
+        <li>Clone the repository:
+            <pre><code>git clone https://github.com/gitYourbits/drCode-LeadManager.git
+cd drCode-LeadManager</code></pre>
+        </li>
+        <li>Install backend dependencies:
+            <pre><code>cd backend
+npm install</code></pre>
+        </li>
+        <li>Configure environment variables:
+            <pre><code>cp .env.example .env
+# Edit the .env file with your MongoDB connection string and other settings</code></pre>
+        </li>
+        <li>Generate Prisma client:
+            <pre><code>npx prisma generate
 # This creates the Prisma client code required by the application
 # If you get any schema errors, you may need to run:
-npx prisma db push
-Install frontend dependencies
+npx prisma db push</code></pre>
+        </li>
+        <li>Install frontend dependencies:
+            <pre><code>cd ../frontend
+npm install</code></pre>
+        </li>
+        <li>Start the application:
+            <ul>
+                <li>In the backend directory:
+                    <pre><code>npm run dev</code></pre>
+                </li>
+                <li>In the frontend directory (in a new terminal):
+                    <pre><code>npm run dev</code></pre>
+                </li>
+            </ul>
+        </li>
+    </ol>
 
-bash
-Copy
-Edit
-cd ../frontend
-npm install
-Start the application
+    <h3>Access the Application</h3>
+    <ul>
+        <li>Frontend: <a href="http://localhost:5173" target="_blank">http://localhost:5173</a></li>
+        <li>Backend API: <a href="http://localhost:3000" target="_blank">http://localhost:3000</a></li>
+    </ul>
 
-In the backend directory:
+    <hr>
 
-bash
-Copy
-Edit
-npm run dev
-In the frontend directory (in a new terminal):
+    <h2>Troubleshooting Common Issues</h2>
 
-bash
-Copy
-Edit
-npm run dev
-Access the application
-Frontend: http://localhost:5173
+    <h3>Prisma Client Not Found</h3>
+    <p>If you see errors like "Cannot find module '@prisma/client'" or "You need to run prisma generate":</p>
+    <pre><code>cd backend
+npx prisma generate</code></pre>
 
-Backend API: http://localhost:3000
+    <h3>Database Connection Issues</h3>
+    <p>If you experience database connection problems:
+        <ul>
+            <li>Check that your MongoDB instance is running.</li>
+            <li>Verify the connection string in the .env file.</li>
+            <li>Try running:
+                <pre><code>npx prisma db push</code></pre>
+            </li>
+        </ul>
+    </p>
 
-Troubleshooting Common Issues
-Prisma Client Not Found
-If you see errors like "Cannot find module '@prisma/client'" or "You need to run prisma generate":
+    <h3>Port Already in Use</h3>
+    <p>If you see "Port already in use" errors:</p>
+    <pre><code>netstat -ano | findstr :[PORT]
+taskkill /PID [PID] /F</code></pre>
+    <p>Or change the port in the configuration (check package.json or server.js files).</p>
 
-bash
-Copy
-Edit
-cd backend
-npx prisma generate
-Database Connection Issues
-If you experience database connection problems:
+    <hr>
 
-Check that your MongoDB instance is running.
+    <h2>Usage</h2>
 
-Verify the connection string in the .env file.
+    <h3>Creating a New Lead</h3>
+    <ul>
+        <li>Fill out the lead form with customer information.</li>
+        <li>Complete optional questions for better lead scoring.</li>
+        <li>Submit the form to process the lead.</li>
+    </ul>
 
-Try running:
+    <h3>Managing Leads</h3>
+    <ul>
+        <li>View all leads in the dashboard.</li>
+        <li>Sort by priority, date, or other attributes.</li>
+        <li>Click on a lead to see detailed analysis.</li>
+        <li>Filter leads based on various criteria.</li>
+    </ul>
 
-bash
-Copy
-Edit
-npx prisma db push
-Port Already in Use
-If you see "Port already in use" errors:
+    <h3>Analyzing Lead Scores</h3>
+    <p>The system displays:
+        <ul>
+            <li>Overall priority score (1-5)</li>
+            <li>Breakdown of scoring factors</li>
+            <li>Visual representation of each factor's contribution</li>
+            <li>Business rules applied to the lead</li>
+        </ul>
+    </p>
 
-Find the process using the port:
+    <hr>
 
-Windows: netstat -ano | findstr :[PORT]
+    <h2>Advanced Scoring System</h2>
 
-Kill the process:
+    <p>The Lead Management System employs a sophisticated scoring algorithm that considers multiple factors:</p>
+    <ul>
+        <li><strong>Profit Potential:</strong> Based on property type, budget, and expected commission.</li>
+        <li><strong>Urgency:</strong> How soon the customer needs to make a purchase.</li>
+        <li><strong>Intent:</strong> Measured through engagement with optional questions.</li>
+        <li><strong>Interest Level:</strong> Based on specific property interest.</li>
+        <li><strong>Customer Type:</strong> New vs. returning customer.</li>
+    </ul>
 
-bash
-Copy
-Edit
-taskkill /PID [PID] /F
-Or change the port in the configuration (check package.json or server.js files).
+    <hr>
 
-Usage
-Creating a New Lead
-Fill out the lead form with customer information.
+    <h2>Key Algorithms Implementation</h2>
 
-Complete optional questions for better lead scoring.
+    <p>The system leverages several advanced algorithms to achieve accurate prioritization:</p>
 
-Submit the form to process the lead.
+    <ul>
+        <li><strong>Hierarchical Fuzzy Logic:</strong> Implements membership functions to handle uncertainty in input values.</li>
+        <li><strong>Analytic Hierarchy Process (AHP):</strong> Determines optimal weights for different scoring factors.</li>
+        <li><strong>Weighted Sum Model (WSM):</strong> Combines multiple factors into a single score.</li>
+        <li><strong>Contextual Adjustment Algorithm:</strong> Modifies scores based on market conditions.</li>
+        <li><strong>Tie-Breaking Mechanism:</strong> Ensures consistent ordering when scores are identical.</li>
+    </ul>
 
-Managing Leads
-View all leads in the dashboard.
+    <hr>
 
-Sort by priority, date, or other attributes.
-
-Click on a lead to see detailed analysis.
-
-Filter leads based on various criteria.
-
-Analyzing Lead Scores
-The system displays:
-
-Overall priority score (1-5).
-
-Breakdown of scoring factors.
-
-Visual representation of each factor's contribution.
-
-Business rules applied to the lead.
-
-Advanced Scoring System
-The Lead Management System employs a sophisticated scoring algorithm that considers multiple factors:
-
-Profit Potential: Based on property type, budget, and expected commission.
-
-Urgency: How soon the customer needs to make a purchase.
-
-Intent: Measured through engagement with optional questions.
-
-Interest Level: Based on specific property interest.
-
-Customer Type: New vs. returning customer.
-
-Key Algorithms Implementation
-The system leverages several advanced algorithms to achieve accurate prioritization:
-
-Hierarchical Fuzzy Logic: Implements membership functions to handle uncertainty in input values.
-
-Converts continuous values (like budget) into fuzzy sets.
-
-Applies fuzzy rules to combine criteria.
-
-Uses defuzzification to produce final scores.
-
-Analytic Hierarchy Process (AHP): Determines optimal weights for different scoring factors.
-
-Structured technique for organizing criteria in hierarchical form.
-
-Uses pairwise comparisons of criteria importance.
-
-Calculates the principal eigenvector to derive weights.
-
-Weighted Sum Model (WSM): Combines multiple factors into a single score.
-
-Multiplies normalized scores by their respective weights.
-
-Sums the weighted scores to produce a final value.
-
-Converts the raw score to a 1-5 priority level.
-
-Contextual Adjustment Algorithm: Modifies scores based on market conditions.
-
-Location-based priority adjustments.
-
-Property type-specific weight modifications.
-
-Seasonal factors that influence buying behavior.
-
-Tie-Breaking Mechanism: Ensures consistent ordering when scores are identical.
-
-Hierarchical comparison of individual factors.
-
-Deterministic random component for identical inputs.
-
-Data Flow Through Scoring System
-plaintext
-Copy
-Edit
+    <h2>Data Flow Through Scoring System</h2>
+    <pre><code>
 ┌─────────────────┐                        
 │   Input Data    │  Budget, urgency, property interest, etc.
 └────────┬────────┘                        
@@ -261,12 +221,12 @@ Edit
 │  Final Priority │  Final Result: Priority Level 5
 │     Score       │  Action: Immediate follow-up within 1 hour
 └─────────────────┘
-For detailed documentation on the scoring algorithm, see SCORING_DOCUMENTATION.md.
+</code></pre>
 
-Project Structure
-plaintext
-Copy
-Edit
+    <hr>
+
+    <h2>Project Structure</h2>
+    <pre><code>
 lead-management-system/
 ├── backend/              # Node.js Express backend
 │   ├── controllers/      # API route controllers
@@ -282,6 +242,19 @@ lead-management-system/
 │   │   └── main.jsx      # Entry point
 │   └── package.json      # Frontend dependencies
 └── README.md             # Project documentation
+</code></pre>
+
+    <hr>
+
+    <h2>License</h2>
+    <p>This project is licensed under the MIT License.</p>
+</body>
+</html>
+
+
+Acknowledgments
+
+This project was developed for the Xeno Internship.
 
 
 
