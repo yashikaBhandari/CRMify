@@ -86,15 +86,120 @@
   </ul>
 </p>
 
-<h4>Installation:</h4>
-```bash
-git clone https://github.com/gitYourbits/drCode-LeadManager.git
+### Installation
+
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/gitYourbits/drCode-LeadManager.git
+Navigate to the project directory
+
+bash
+Copy
+Edit
 cd drCode-LeadManager
+Install backend dependencies
+
+bash
+Copy
+Edit
 cd backend
 npm install
+Configure environment variables
+Copy the example environment file and configure your MongoDB connection string.
+
+bash
+Copy
+Edit
 cp .env.example .env
+# Edit the .env file with your MongoDB connection string and other settings
+Generate Prisma client
+
+bash
+Copy
+Edit
 npx prisma generate
+# This creates the Prisma client code required by the application
+Install frontend dependencies
+
+bash
+Copy
+Edit
 cd ../frontend
 npm install
-npm run dev # In both backend and frontend directories
-<h3 align="left">Access the Application:</h3> <ul> <li>Frontend: http://localhost:5173</li> <li>Backend API: http://localhost:3000</li> </ul> <h3 align="left">Troubleshooting:</h3> <h4>Prisma Client Not Found:</h4> ```bash cd backend npx prisma generate ``` <h4>Database Connection Issues:</h4> <ul> <li>Ensure MongoDB is running and verify your connection string.</li> <li>Run `npx prisma db push` if needed.</li> </ul> <h3 align="left">Usage:</h3> <h4>Creating a New Lead:</h4> <ul> <li>Fill out the lead form with customer information.</li> <li>Complete optional questions for better scoring.</li> <li>Submit the form to process the lead.</li> </ul> <h4>Managing Leads:</h4> <ul> <li>View and manage leads in the dashboard.</li> <li>Sort and filter leads based on various criteria.</li> <li>Click on a lead for detailed analysis.</li> </ul> <h4>Analyzing Lead Scores:</h4> <ul> <li>Displays overall priority score (1-5).</li> <li>Visual representation of factors contributing to the score.</li> </ul> <h3 align="left">Advanced Scoring System:</h3> <ul> <li>Hierarchical Fuzzy Logic for handling uncertainty.</li> <li>Analytic Hierarchy Process (AHP) for weight determination.</li> <li>Weighted Sum Model (WSM) for combining factors.</li> <li>Contextual Adjustments based on market conditions and location.</li> </ul> <h3 align="left">Project Structure:</h3> ```bash lead-management-system/ ├── backend/ │ ├── controllers/ │ ├── models/ │ ├── routes/ │ └── server.js ├── frontend/ │ ├── public/ │ ├── src/ │ │ ├── components/ │ │ ├── services/ │ │ ├── App.jsx │ │ └── main.jsx │ └── package.json └── README.md ``` <h3 align="left">License:</h3> This project is licensed under the MIT License.
+Start the application
+Run the backend server in one terminal:
+
+bash
+Copy
+Edit
+# In the backend directory
+npm run dev
+Run the frontend server in another terminal:
+
+bash
+Copy
+Edit
+# In the frontend directory
+npm run dev
+Access the Application
+Frontend: http://localhost:5173
+
+Backend API: http://localhost:3000
+
+Troubleshooting Common Issues
+Prisma Client Not Found
+If you encounter errors like "Cannot find module '@prisma/client'" or "You need to run prisma generate":
+
+bash
+Copy
+Edit
+cd backend
+npx prisma generate
+Database Connection Issues
+If you experience database connection problems:
+
+Check that your MongoDB instance is running.
+
+Verify the connection string in the .env file.
+
+Run:
+
+bash
+Copy
+Edit
+npx prisma db push
+Port Already in Use
+If you see "Port already in use" errors:
+
+Find the process using the port:
+
+Windows:
+
+bash
+Copy
+Edit
+netstat -ano | findstr :[PORT]
+Kill the process:
+
+bash
+Copy
+Edit
+taskkill /PID [PID] /F
+Or change the port in the configuration (check package.json or server.js files).
+
+Usage
+Creating a New Lead
+Fill out the lead form with customer information.
+
+Complete optional questions for better lead scoring.
+
+Submit the form to process the lead.
+
+Managing Leads
+View all leads in the dashboard.
+
+Sort by priority, date, or other attributes.
+
+Click on a lead to see detailed analysis.
+
+Filter leads based on various criteria.
